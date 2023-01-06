@@ -2,17 +2,7 @@ const express = require('express');
 const Model = require('../model.js/model');
 const router = express.Router();
 
-// router.get('/', async (req, res) => {
-//  try{
-//   const sneaker = await Model.find();
-//   res.status(200).json(sneaker)
-//  }
-//  catch(error){
-//   res.status(500).json({message: error.message})
-//  }
-// })
- 
-router.post('/post', async(req, res) => {
+router.post('/', async(req, res) => {
     const data = new Model({
         brand: req.body.brand,
         name: req.body.name,

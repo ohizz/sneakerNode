@@ -12,8 +12,8 @@ const database = mongoose.connection;
 const app = express();
 
 // app.use(cors());
+app.use('/sneakers', routes);
 app.use(bodyparser.json());
-app.use('/api', routes);
 app.use(express.json());
 
 database.on('error', (error) => {
