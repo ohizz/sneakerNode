@@ -31,7 +31,7 @@ router.post('/post', async(req, res) => {
     }
 })
 
-router.get('/getAll', async (req, res) => {
+router.get('/', async (req, res) => {
     try{
         const data = await Model.find();
         res.json(data);
@@ -41,7 +41,7 @@ router.get('/getAll', async (req, res) => {
     }
 })
 
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
  try{
     const id = req.params.id;
     const data = await Model.findByIdAndDelete(id)
@@ -52,7 +52,7 @@ router.delete('/delete/:id', async (req, res) => {
  }
 })
 
-router.get('/getOne/:postId', async(req, res) => {
+router.get('/:postId', async(req, res) => {
  try{
     const data = await Model.findBtId(req.params.id);
  } 
