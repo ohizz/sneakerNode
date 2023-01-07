@@ -13,7 +13,7 @@ const app = express();
 
 // app.use(cors());
 app.use(express.json());
-app.use('/sneakers', routes);
+app.use('/sneakers/', routes);
 app.use(bodyparser.json());
 
 database.on('error', (error) => {
