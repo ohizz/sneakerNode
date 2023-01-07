@@ -11,7 +11,7 @@ mongoose.connect(mongoString);
 const database = mongoose.connection;
 
 const app = express();
-const port = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
@@ -26,6 +26,6 @@ database.once('connected', () => {
     console.log('Database Connected');
 })
 
-app.listen(port, () => {
-    console.log(`server is up ${port}`)
+app.listen(PORT, () => {
+    console.log(`server is up ${PORT}`)
 })
