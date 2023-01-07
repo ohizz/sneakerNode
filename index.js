@@ -13,7 +13,7 @@ const app = express();
 
 // app.use(cors());
 app.use(express.json());
-app.use('/', routes);
+app.use('/sneakers', routes);
 app.use(bodyparser.json());
 
 database.on('error', (error) => {
@@ -24,6 +24,6 @@ database.once('connected', () => {
     console.log('Database Connected');
 })
 
-app.listen(8080, () => {
+app.listen(0, () => {
     console.log(`server is up ${8080}`)
 })
