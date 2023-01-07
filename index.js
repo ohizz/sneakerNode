@@ -4,18 +4,19 @@ require('dotenv').config();
 const routes = require('./routes/routes');
 // const cors = require('cors');
 const bodyparser = require('body-parser');
+mongoose.set('strictQuery', false);
 
 const mongoString = process.env.DATABASE_URL;
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 
 const app = express();
-const port = process.env.PORT || 3030;
+const port = process.env.PORT || 8080;
 
 // app.use(cors());
 app.use(express.json());
 app.use('/sneakers', routes);
-// app.use(bodyparser.json());
+app.use(bodyparser.json());
 
 database.on('error', (error) => {
     console.log(error)

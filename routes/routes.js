@@ -43,7 +43,7 @@ router.delete('/:id', async (req, res) => {
 
 router.get('/:postId', async(req, res) => {
  try{
-    const data = await Model.findBtId(req.params.id);
+    const data = await Model.findById(req.params.id);
  } 
  catch(error){
     res.status(500).json({msg: error.message})
