@@ -3,22 +3,21 @@ const Model = require('../model.js/model');
 const router = express.Router();
 
 router.post('/', async(req, res) => {
-    const data = new Model({
-        brand: req.body.brand,
-        name: req.body.name,
-        image: req.body.image,
-        price: req.body.price,
-        year: req.body.year
+ const data = new Model({
+  brand: req.body.brand,
+  name: req.body.name,
+  image: req.body.image,
+  price: req.body.price,
+  year: req.body.year
+ })
 
-    })
-
-    try {
-        const dataToSave = await data.save();
-        res.status(200).json(dataToSave);
-    }
-    catch (error) {
-        res.status(400).json({message: error.message})
-    }
+ try {
+   const dataToSave = await data.save();
+   res.status(200).json(dataToSave);
+}
+ catch (error) {
+  res.status(400).json({message: error.message})
+ }
 })
 
 router.get('/', async (req, res) => {
