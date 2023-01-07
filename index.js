@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const route = require('./routes/routes');
 const cors = require('cors');
-const Model = require('./model.js/model');
 const bodyparser = require('body-parser');
 mongoose.set('strictQuery', false);
 
@@ -16,18 +15,9 @@ const port = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
-// app.use('/sneakers/', route);
+app.use('/sneakers', route);
 app.use(bodyparser.json());
 
-app.get('/', async (req,res) => {
-    try{
-        const data = await Model.find();
-        res.json(data);
-    }
-    catch(error){
-        res.status(500).json({message: error.message})
-    }
-})
 database.on('error', (error) => {
     console.log(error)
 })
