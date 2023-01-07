@@ -10,12 +10,12 @@ mongoose.connect(mongoString);
 const database = mongoose.connection;
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3030;
 
 // app.use(cors());
 app.use(express.json());
 app.use('/sneakers', routes);
-app.use(bodyparser.json());
+// app.use(bodyparser.json());
 
 database.on('error', (error) => {
     console.log(error)
