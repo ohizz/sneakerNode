@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const route = require('./routes/routes');
-// const cors = require('cors');
+const cors = require('cors');
 const bodyparser = require('body-parser');
 mongoose.set('strictQuery', false);
 
@@ -13,7 +13,7 @@ const database = mongoose.connection;
 const app = express();
 const port = process.env.PORT || 8080;
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 app.use('/', route);
 app.use(bodyparser.json());
