@@ -10,6 +10,7 @@ mongoose.connect(mongoString);
 const database = mongoose.connection;
 
 const app = express();
+const PORT = process.env.PORT || 8080;
 
 // app.use(cors());
 app.use(express.json());
@@ -24,6 +25,6 @@ database.once('connected', () => {
     console.log('Database Connected');
 })
 
-app.listen(0, () => {
+app.listen(PORT, () => {
     console.log(`server is up ${8080}`)
 })
